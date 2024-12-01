@@ -222,16 +222,47 @@
             
             <h3>Model-Specific Visualizations and metrics:</h3>
             <p>Click to expand to view each model's visualizations and performance metrics.</p>
+            
+            <details>
+                <summary>Legacy (Midterm LASSO)</summary>
+                <h4>Visualizations</h4>
+                <div class="visualization-container">
+
+                    <!-- Actual vs Predicted Sale Prices -->
+                    <div class="image-text-row">
+                        <img src="legacy_visualizations/Actual_vs_Predicted_sales_prices.png" alt="Lasso Regression: Actual vs Predicted Sale Prices">
+                        <div class="text-content">
+                            <p>This image is a scatterplot displaying the relationship between the actual and predicted sale prices for the training dataset. Each point represents a house, with the actual price on the x-axis and the predicted price on the y-axis. The dashed red line represents a perfect prediction, where predicted prices match the actual prices. The scatterplot shows that the model is fairly accurate, as most points are close to this ideal line. However, there is some inaccuracy at higher price ranges, indicating limitations in the model’s performance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Distribution of Residuals -->
+                    <div class="image-text-row">
+                        <img src="legacy_visualizations/Description_of_Residuals.png" alt="Distribution of Residuals for Lasso Regression">
+                        <div class="text-content">
+                            <p>This image is a histogram displaying the distribution of residuals, which are the differences between actual and predicted sale prices for the training dataset. The residuals are centered around zero, indicating that the model’s predictions are generally unbiased. The spread of the distribution shows some outliers, with a slight right skew, suggesting a tendency for underprediction in higher-priced homes. The distribution of residuals provides insight into the model’s error characteristics.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            <h4>Quantitative Metrics:</h4>
+                <ul>
+                    <li> Moderate RMSE (Root Mean Squared Error): $41,578</li>
+                    <li>High R² Score: 0.9301</li>
+                </ul>
+            </details>
+
             <details>
                 <summary>Lasso Regression</summary>
                 <h4>Visualizations</h4>
                 <div class="visualization-container">
 
                     <!-- Hyperparameter Cross-Validation Results -->
-                    <div class="image-text-row">
+                     <div class="image-text-row">
                         <img src="lasso_visualizations/lasso_alpha_vs_rmse.png" alt="Lasso Regression: Hyperparameter Cross-Validation Results">
                         <div class="text-content">
-                            <p>This line plot shows the relationship between the alpha hyperparameter (on a logarithmic scale) and the RMSE. It highlights the trade-offs between model regularization strength and performance, with the optimal alpha value minimizing RMSE.</p>
+                            <p>This line plot shows the relationship between the alpha hyperparameter (on a logarithmic scale) and the RMSE. It highlights the trade-offs between model regularization strength and performance, with the optimal alpha value minimizing RMSE. Using this, the optimal alpha was determined as 0.0001 as it led to the least RMSE.</p>
                         </div>
                     </div>
 
@@ -239,7 +270,7 @@
                     <div class="image-text-row">
                         <img src="lasso_visualizations/lasso_comparison_actual_vs_predicted.png" alt="Lasso Regression: Actual vs Predicted Sale Prices">
                         <div class="text-content">
-                            <p>This scatterplot compares actual sale prices (on the x-axis) with predicted sale prices (on the y-axis). The red dashed line represents perfect predictions, where actual and predicted values align. Deviations from the line, especially at higher price ranges, indicate areas for improvement.</p>
+                            <p>This scatterplot is displaying the relationship between the actual and predicted sale prices for the training dataset. Each point represents a house, with the actual price on the x-axis and the predicted price on the y-axis. Compared to the midterm version, this model appaears to scale to higher value houses, due to the use of log space, to reduce feature covariance.</p>
                         </div>
                     </div>
 
@@ -247,7 +278,7 @@
                     <div class="image-text-row">
                         <img src="lasso_visualizations/lasso_distribution_residuals.png" alt="Distribution of Residuals for Lasso Regression">
                         <div class="text-content">
-                            <p>This histogram displays the distribution of residuals (actual minus predicted values). The central alignment around zero indicates unbiased predictions, while slight skewness suggests some underprediction for higher-priced homes.</p>
+                            <p>This histogram is displaying the distribution of residuals, which are the differences between actual and predicted sale prices for the training dataset. The residuals are fairly centered around 0, indicating that the model’s predictions are generally unbiased. The spread of the distribution shows some outliers, with a slight right skew, suggesting a tendency for underprediction in higher-priced homes. The distribution of residuals provides insight into the model’s error characteristics.</p>
                         </div>
                     </div>
 
@@ -255,7 +286,7 @@
                     <div class="image-text-row">
                         <img src="lasso_visualizations/lasso_kfold_rmse_boxplot.png" alt="Lasso Regression: K-Fold Evaluation Results">
                         <div class="text-content">
-                            <p>This boxplot visualizes RMSE across folds for different alpha values during cross-validation. It highlights the consistency of the model's performance and the stability of predictions across different data splits.</p>
+                            <p>This boxplot displays the Root Mean Squared Error (RMSE) values obtained across multiple folds during k-fold cross-validation. Each box represents the range of RMSE values for a specific parameter setting (e.g., alpha in regularized models). The central line within each box indicates the median RMSE, while the top and bottom edges represent the upper and lower quartiles, respectively. It highlights the consistency of the model's performance and the stability of predictions across different data splits.</p>
                         </div>
                     </div>
 
@@ -263,7 +294,7 @@
                     <div class="image-text-row">
                         <img src="lasso_visualizations/lasso_permutation_importances.png" alt="Top 15 Features by Permutation Importance for Lasso Regression">
                         <div class="text-content">
-                            <p>This bar plot displays the top 15 features ranked by their permutation importance. It reveals the key predictors in the model, with "Overall Quality" and "Second Floor Square Footage" contributing the most to prediction accuracy.</p>
+                            <p>This bar plot displays the top 15 features ranked by their permutation importance. According to the model, the most important features to predict home price are "Overall Quality" and "Second Floor Square Footage"</p>
                         </div>
                     </div>
 
@@ -288,7 +319,7 @@
                     <div class="image-text-row">
                         <img src="ridge_visualizations/ridge_alpha_vs_rmse.png" alt="Ridge Regression: Hyperparameter Cross-Validation Results">
                         <div class="text-content">
-                            <p>This line plot shows the relationship between the alpha hyperparameter (on a logarithmic scale) and the RMSE. It demonstrates how increasing regularization reduces error, with the optimal alpha providing a balance between bias and variance.</p>
+                            <p>This line plot shows the relationship between the alpha hyperparameter (on a logarithmic scale) and the RMSE. It highlights the trade-offs between model regularization strength and performance, with the optimal alpha value minimizing RMSE. Using this, the optimal alpha was determined as 1.0 as it led to the least RMSE.</p>
                         </div>
                     </div>
             
@@ -296,7 +327,7 @@
                     <div class="image-text-row">
                         <img src="ridge_visualizations/ridge_actual_vs_predicted.png" alt="Ridge Regression: Actual vs Predicted Sale Prices">
                         <div class="text-content">
-                            <p>This scatterplot compares actual sale prices (x-axis) with predicted sale prices (y-axis). Most points align closely with the red dashed line, representing accurate predictions, although some divergence is visible for higher-priced properties.</p>
+                            <p>This scatterplot is displaying the relationship between the actual and predicted sale prices for the training dataset. Each point represents a house, with the actual price on the x-axis and the predicted price on the y-axis. Compared to the LASSO regression, this model appaears to scale fine at higher value houses, but there is some error in the mid-price range.</p>
                         </div>
                     </div>
             
@@ -304,7 +335,7 @@
                     <div class="image-text-row">
                         <img src="ridge_visualizations/ridge_residuals.png" alt="Distribution of Residuals for Ridge Regression">
                         <div class="text-content">
-                            <p>This histogram shows the residuals (differences between actual and predicted prices). The concentration around zero indicates the model's unbiased predictions, though some residual skewness highlights underprediction in higher-value homes.</p>
+                            <p>This histogram is displaying the distribution of residuals, which are the differences between actual and predicted sale prices for the training dataset. The residuals are fairly centered around 0, but less centered than the LASSO regression; indicating that the model’s predictions are generally more biased than LASSO. The spread of the distribution shows some outliers, with a slight right skew, suggesting a tendency for underprediction in higher-priced homes. The distribution of residuals provides insight into the model’s error characteristics.</p>
                         </div>
                     </div>
             
@@ -312,7 +343,7 @@
                     <div class="image-text-row">
                         <img src="ridge_visualizations/ridge_cv_rmse.png" alt="Ridge Regression: Cross-Validation RMSE Across Folds">
                         <div class="text-content">
-                            <p>This bar plot depicts RMSE for each cross-validation fold, showcasing the model's consistency across different data splits and highlighting areas where performance could be improved.</p>
+                            <p>This bar plot depicts RMSE for each cross-validation fold, showcasing the model's consistency across different data splits and highlighting areas where performance could be improved. Relative to other models, ridge regression had a very consistant RMSE.</p>
                         </div>
                     </div>
             
@@ -320,7 +351,7 @@
                     <div class="image-text-row">
                         <img src="ridge_visualizations/ridge_top_features.png" alt="Top 15 Features by Coefficient Importance for Ridge Regression">
                         <div class="text-content">
-                            <p>This bar plot ranks the top 15 features based on their absolute coefficient values. Key predictors such as "Condition2_PosN" and "RoofMatl_WdShngl" play significant roles in the model's predictions.</p>
+                            <p>This bar plot displays the top 15 features ranked by their permutation importance. According to the model, the most important features to predict home price are "Condition2_PosN" and "RoofMatl_WdShngl"</p>
                         </div>
                     </div>
             
@@ -343,7 +374,7 @@
                     <div class="image-text-row">
                         <img src="forest_visualizations/rf_actual_vs_predicted.png" alt="Random Forest: Actual vs Predicted Sale Prices">
                         <div class="text-content">
-                            <p>This scatterplot compares actual sale prices (x-axis) with predicted sale prices (y-axis). The points closely follow the red dashed line, indicating that the Random Forest model makes accurate predictions. Slight deviations for higher-priced homes highlight potential areas for refinement.</p>
+                            <p>This scatterplot is displaying the relationship between the actual and predicted sale prices for the training dataset. Each point represents a house, with the actual price on the x-axis and the predicted price on the y-axis. Compared to other models, the points on this graph seem incredibely accurate. This is also reflected by the RMSE of 0.9816, indicating that the model is incredibely accurate in predicting home price</p>
                         </div>
                     </div>
             
@@ -351,7 +382,10 @@
                     <div class="image-text-row">
                         <img src="forest_visualizations/rf_cv_rmse.png" alt="Random Forest: Cross-Validation RMSE Across Folds">
                         <div class="text-content">
-                            <p>This bar plot visualizes RMSE for each fold in cross-validation. It demonstrates the stability of the Random Forest model’s performance across different data splits, with consistent RMSE values across folds.</p>
+                            <p>This bar plot visualizes RMSE for each fold in cross-validation. It demonstrates the stability of the Random Forest model’s performance across different data splits, with consistent RMSE values across folds. It is not as good as ridge regression, however.
+                                NOTE: The RMSE values are "negative" due to the scoring method used in cross-validation. Please disregard the negative sign.
+
+                            </p>
                         </div>
                     </div>
             
@@ -359,7 +393,7 @@
                     <div class="image-text-row">
                         <img src="forest_visualizations/rf_residuals.png" alt="Random Forest: Distribution of Residuals">
                         <div class="text-content">
-                            <p>This histogram shows the residuals (differences between actual and predicted prices). The residuals are centered around zero, indicating that the model provides unbiased predictions. The distribution’s tight spread reflects the model's accuracy.</p>
+                            <p>This histogram is displaying the distribution of residuals, which are the differences between actual and predicted sale prices for the training dataset. The residuals are centered around 0, ndicating that the model’s predictions are generally more biased than LASSO. The spread of the distribution shows a low amount outliers, but with a slight right skew, suggesting a tendency for underprediction in higher-priced homes. The distribution of residuals provides insight into the model’s error characteristics.</p>
                         </div>
                     </div>
             
@@ -367,7 +401,7 @@
                     <div class="image-text-row">
                         <img src="forest_visualizations/rf_top_features.png" alt="Random Forest: Top 15 Most Important Features">
                         <div class="text-content">
-                            <p>This bar plot displays the top 15 features ranked by their importance in the Random Forest model. "Overall Quality" and "GrLivArea" are the most influential features, significantly impacting house price predictions.</p>
+                            <p>This bar plot displays the top 15 features ranked by their permutation importance. According to the model, the most important features to predict home price are "Overall Quality" and "GrLivArea"</p>
                         </div>
                     </div>
             
@@ -383,28 +417,20 @@
                 <summary>Stacked Model</summary>
                 <h4>Visualizations:</h4>
                 <div class="visualization-container">
-            
-                    <!-- Actual vs Predicted Sale Prices -->
-                    <div class="image-text-row">
-                        <img src="stacked_visualizations/stacked_actual_vs_predicted.png" alt="Stacked Residual Model: Actual vs Predicted Sale Prices">
-                        <div class="text-content">
-                            <p>This scatterplot compares actual sale prices (x-axis) with predicted sale prices (y-axis). The close alignment of points to the red dashed line indicates strong predictive accuracy of the stacked residual model, even for higher-priced properties.</p>
-                        </div>
-                    </div>
-            
+                    
                     <!-- Hyperparameter Cross-Validation Results -->
                     <div class="image-text-row">
                         <img src="stacked_visualizations/stacked_alpha_vs_rmse.png" alt="Stacked Residual Model: Alpha vs RMSE">
                         <div class="text-content">
-                            <p>This line plot shows the relationship between the alpha hyperparameter (log scale) and the RMSE. It illustrates how tuning alpha impacts the balance between model complexity and prediction error, helping to optimize the stacked model's performance.</p>
+                            <p>This line plot shows the relationship between the alpha hyperparameter (on a logarithmic scale) and the RMSE. It highlights the trade-offs between model regularization strength and performance, with the optimal alpha value minimizing RMSE. Using this, the optimal alpha was determined as 0.0001 as it led to the least RMSE.</p>
                         </div>
                     </div>
-            
-                    <!-- Cross-Validation RMSE Across Folds -->
+
+                    <!-- Actual vs Predicted Sale Prices -->
                     <div class="image-text-row">
-                        <img src="stacked_visualizations/stacked_cv_rmse.png" alt="Stacked Residual Model: Cross-Validation RMSE Across Folds">
+                        <img src="stacked_visualizations/stacked_actual_vs_predicted.png" alt="Stacked Residual Model: Actual vs Predicted Sale Prices">
                         <div class="text-content">
-                            <p>This bar plot visualizes RMSE across different folds during cross-validation. It demonstrates the consistency of the model’s performance across splits and highlights areas for potential refinement.</p>
+                            <p>This scatterplot is displaying the relationship between the actual and predicted sale prices for the training dataset. Each point represents a house, with the actual price on the x-axis and the predicted price on the y-axis. Compared to other models, the points on this graph seem incredibely accurate. This is also reflected by the RMSE of 0.9866, indicating that the model is the most accurate in predicting home price</p>
                         </div>
                     </div>
             
@@ -412,7 +438,15 @@
                     <div class="image-text-row">
                         <img src="stacked_visualizations/stacked_residuals.png" alt="Stacked Residual Model: Distribution of Residuals">
                         <div class="text-content">
-                            <p>This histogram shows the residuals (actual minus predicted values). The residuals are narrowly distributed around zero, indicating unbiased and accurate predictions with minimal errors.</p>
+                            <p>This histogram is displaying the distribution of residuals, which are the differences between actual and predicted sale prices for the training dataset. The residuals are very centered around 0, with a low amount of outliers; indicating that the model’s predictions are generally unbaised. The spread of the distribution shows a slight right skew, suggesting a tendency for underprediction in higher-priced homes. The distribution of residuals provides insight into the model’s error characteristics.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cross-Validation RMSE Across Folds -->
+                    <div class="image-text-row">
+                        <img src="stacked_visualizations/stacked_cv_rmse.png" alt="Stacked Residual Model: Cross-Validation RMSE Across Folds">
+                        <div class="text-content">
+                            <p>This bar plot visualizes RMSE for each fold in cross-validation. It demonstrates the stability of the stacked model’s performance across different data splits, with consistent RMSE values across folds. It is not as good as ridge regression, however.</p>
                         </div>
                     </div>
             
@@ -433,7 +467,7 @@
                 <div class="image-text-row">
                     <img src="stacked_visualizations/stacked_actual_vs_predicted.png" alt="Best Actual vs Predicted: Stacked Residual Model">
                     <div class="text-content">
-                        <p><strong>Best Actual vs Predicted:</strong> The Stacked Residual Model delivers the most accurate alignment with the red dashed line, indicating highly reliable predictions across all price ranges. Deviations are minimal compared to other models, even for higher-priced homes.</p>
+                        <p><strong>Best Actual vs Predicted:</strong> The Stacked Residual Model delivers the most accurate alignment with the red dashed line, broadcasting reliable predictions for all houses at all price ranges. Deviations are minimal compared to other models, even for higher-priced homes. This is further proven by the RMSE being 0.9866, presenting the model's accuracy.</p>
                     </div>
                 </div>
 
@@ -441,7 +475,7 @@
                 <div class="image-text-row">
                     <img src="forest_visualizations/rf_residuals.png" alt="Best Residual Distribution: Random Forest">
                     <div class="text-content">
-                        <p><strong>Best Residual Distribution:</strong> The Random Forest Model has the tightest residual distribution centered around zero, showcasing its ability to minimize errors effectively. The symmetrical and narrow spread indicates precise predictions with low variance.</p>
+                        <p><strong>Best Residual Distribution:</strong> The Random Forest Model has the tightest residual distribution centering, showcasing its ability to minimize errors effectively. The symmetrical and narrow spread indicates both precise predictions with low variance.</p>
                     </div>
                 </div>
 
@@ -457,7 +491,7 @@
                 <div class="image-text-row">
                     <img src="forest_visualizations/rf_top_features.png" alt="Best Feature Importance: Random Forest">
                     <div class="text-content">
-                        <p><strong>Best Feature Importance:</strong> The Random Forest Model provides a clear and interpretable bar plot, highlighting "Overall Quality" and "GrLivArea" as dominant features. The visualization effectively emphasizes the nonlinear interactions captured by the model.</p>
+                        <p><strong>Best Feature Importance:</strong> The Random Forest Model provides a clear and interpretable bar plot, highlighting "Overall Quality" and "GrLivArea" as dominant features. Further, the features are dominantly found to be the most siginifican, indicating confidence from the model.</p>
                     </div>
                 </div>
 
@@ -480,7 +514,81 @@
                 <li><strong>Most Influential Feature:</strong> "Overall Quality" (Identified as the most important feature across all models)</li>
             </ul>
 
+            <h3>Results:</h3>
+
+            <p> From the midterm, we had noticed heteroskedasticity; decreased accuracy at higher values (evident
+                in the legacy model.) To imrpove on this we used a log transformation on the target variable, SalePrice,
+                to reduce the skewness and heteroskedasticity. This transformation improved the model's performance
+                significantly, as seen in the Lasso regression model. The lasso regression model was strong in the 
+                feature selection, as its feature importance plot revealed the key variable of “overall quality”. 
+                The Alpha vs RMSE plot also provided an ntuitive visualization of the tradeoffs of regularization, 
+                showing the best alpha value that balances accuracy and simplicity in the model. The residuals, while
+                centered around zero, were wider than the ride and random forest models that we used, suggesting higher
+                predictions errors. This model’s ability to shrink coefficients to zero made it very strong in
+                finding the most impactful variables, particularly in high dimensional datasets. However,
+                the tradeoff with this is the excessive regularization that can lead to underfitting, when
+                some features are penalized unnecessarily and shrunk to become insignificant. Similarly to
+                the ridge model, lasso assumes linearity and ends up struggling to model the complex
+                relationships between multidimensional datasets. The weaker performance compared to
+                the ensemble models we used can be attributed to these two major limitations.
+                Computational efficiency and simplicity make it a very strong choice for quick feature
+                selection and light modeling, but one of the ensemble models would be best for anything
+                beyond that.
+
+                The ridge regression model had its strengths lie in its consistency and stability, as
+                demonstrated by the cross validation RMSE plot showing minimal variability across folds.
+                The robustness it displays also makes it reliable when using it with unseen data. The Actual
+                vs Predicted plot shows good correlation for most of the values but falls apart when it deals
+                with extreme prices, its residuals being wider than those of random forest, indicating higher
+                errors. Ridge regression also effectively handles the multicollinearity by penalizing large
+                coefficients which prevents overfitting but introduces the problem of underfitting similarly
+                to lasso regression. The nature of ridge regression is in a linear relationship; therefore, it
+                struggles a lot with complex relationships with lots of data. The model’s reliance on feature
+                scaling and regularization also means that small hyperparameter errors can lead to
+                underfitting. Its performance reflects the limitations stated with regularization preventing
+                overfitting and maintaining stability.
+                
+                
+                The random forest model had a very strong and robust performance, with the Actual vs
+                Predicted plot showing a strong alignment with the diagonal line, indicating high accuracy
+                predictions across the entire range of prices. Its residual distribution was the tightest and
+                most symmetrical centered around zero, showing the model’s strength in minimizing errors
+                effectively. The model also identified “overall quality” and “GrLivArea” as the most critical
+                features, aligning with our knowledge and highlighting the ability to capture complex and
+                nonlinear relationships between many variables. We can attribute these strengths to the
+                nature of Random Forest, which combines decision trees to reduce overfitting and
+                variance. The high-quality performance of this model has the downside of being very
+                computationally expensive, especially with larger datasets due to the need to train and
+                combine multiple decision trees. Another weakness is the inability to account for feature
+                interactions explicitly, differentiating it from the intuitive nature of the feature importance
+                plot. The model performed well because of the model’s robustness towards overfitting and
+                noise, using ensemble learning to produce stable and accurate predictions.
+
+                The stacked residual model was the best performing model overall. Its Actual vs Predicted
+                plot showed the closest alignment to the red dashed line, even for high-priced homes,
+                something that several model underperformed in. This model also achieved the highest
+                training R2 score of 0.9866 and tied with Random Forest for the best training RMSE of 0.05,
+                showing its ability to explain much of the variance in the target variable. The stacked
+                residual model combines the strengths of linear models, such as the ridge regression
+                model, with the residual error reduction capability of the random forest one, making it
+                highly effective at handling both linear and nonlinear patterns. However, due to the
+                complexity of this process, the model introduces some tradeoffs: higher sensitivity to
+                hyperparameter tuning and increased computational complexity, making it less practical
+                for larger and updating datasets that would be used for a more volatile housing market. The
+                model is excellent for this dataset due to its hybrid approach that leverages the strengths of
+                its components to reduce the residual error and increase the accuracy of the predictions.
+                The model’s performance is a testament to the effectiveness of ensemble learning and the
+                power of combining different models to create a more robust and accurate prediction
+                system.
+                
+                Some next steps would be to create more visualizations for the stacked model, and perhaps explore other
+                ensemble models such as gradient boosting or XGBoost to see if they can improve the model’s performance.
+                Furthermore, we could also try different models in the stack, such as a neural network, to see if it can
+                improve the model’s performance. We could also try to improve the model’s performance by using different
+                feature selection techniques, such as recursive feature elimination, to see if we can improve the model’s
+                performance.</p>
             
+            </p>
         </section>
         
         <!-- References Section -->
@@ -510,7 +618,7 @@
                     </tr>
                     <tr>
                         <td>Kushal Dudipala</td>
-                        <td> Wrote code for lasso regression, organized codebase and github, wrote code for website, updated the visualization/statistics write up section, updated the methods write up section, created visualizations, trained models for visualization and quantitative data, README.md/ Statistics.md</td>
+                        <td> Wrote code for lasso regression, organized codebase and github, wrote code for website, updated the visualization/statistics/methods write up section, edited the results write up section, created visualizations, trained models for visualization and quantitative data, README.md/ Statistics.md</td>
                     </tr>
                     <tr>
                         <td>Axel Diaz</td>
