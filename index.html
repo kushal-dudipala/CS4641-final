@@ -533,9 +533,9 @@
                 the ensemble models we used can be attributed to these two major limitations.
                 Computational efficiency and simplicity make it a very strong choice for quick feature
                 selection and light modeling, but one of the ensemble models would be best for anything
-                beyond that.
+                beyond that. </p>
 
-                The ridge regression model had its strengths lie in its consistency and stability, as
+            </p> The ridge regression model had its strengths lie in its consistency and stability, as
                 demonstrated by the cross validation RMSE plot showing minimal variability across folds.
                 The robustness it displays also makes it reliable when using it with unseen data. The Actual
                 vs Predicted plot shows good correlation for most of the values but falls apart when it deals
@@ -546,10 +546,10 @@
                 struggles a lot with complex relationships with lots of data. The model’s reliance on feature
                 scaling and regularization also means that small hyperparameter errors can lead to
                 underfitting. Its performance reflects the limitations stated with regularization preventing
-                overfitting and maintaining stability.
+                overfitting and maintaining stability. </p>
                 
                 
-                The random forest model had a very strong and robust performance, with the Actual vs
+            </p> The random forest model had a very strong and robust performance, with the Actual vs
                 Predicted plot showing a strong alignment with the diagonal line, indicating high accuracy
                 predictions across the entire range of prices. Its residual distribution was the tightest and
                 most symmetrical centered around zero, showing the model’s strength in minimizing errors
@@ -562,9 +562,9 @@
                 combine multiple decision trees. Another weakness is the inability to account for feature
                 interactions explicitly, differentiating it from the intuitive nature of the feature importance
                 plot. The model performed well because of the model’s robustness towards overfitting and
-                noise, using ensemble learning to produce stable and accurate predictions.
+                noise, using ensemble learning to produce stable and accurate predictions. </p>
 
-                The stacked residual model was the best performing model overall. Its Actual vs Predicted
+            </p> The stacked residual model was the best performing model overall. Its Actual vs Predicted
                 plot showed the closest alignment to the red dashed line, even for high-priced homes,
                 something that several model underperformed in. This model also achieved the highest
                 training R2 score of 0.9866 and tied with Random Forest for the best training RMSE of 0.05,
@@ -579,9 +579,9 @@
                 its components to reduce the residual error and increase the accuracy of the predictions.
                 The model’s performance is a testament to the effectiveness of ensemble learning and the
                 power of combining different models to create a more robust and accurate prediction
-                system.
+                system. </p>
                 
-                Some next steps would be to create more visualizations for the stacked model, and perhaps explore other
+            </p> Some next steps would be to create more visualizations for the stacked model, and perhaps explore other
                 ensemble models such as gradient boosting or XGBoost to see if they can improve the model’s performance.
                 Furthermore, we could also try different models in the stack, such as a neural network, to see if it can
                 improve the model’s performance. We could also try to improve the model’s performance by using different
