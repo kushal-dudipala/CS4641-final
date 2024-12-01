@@ -171,26 +171,49 @@
         <section id="methods">
             <h2>Methods</h2>
             
-            <h3>Model information:</h3>
+            <h3>Data Preprocessing Methods:</h3>
             <ul>
-                <li>Preprocessing:</li>
-                <ul>
-                    <li>Removing Columns with Excessive Missing Values</li>
-                    <li>Imputation of Missing Values</li>
-                    <li>Encoding Categorical Variables</li>
-                    <li>Combining training and testing sets</li>
-                </ul>
-                <li>Model:</li>
-                <ul>
-                    <li>LASSO Regression</li>
-                </ul>
+                <li>Imputation:
+                    <ul>
+                        <li>Numeric Columns: Median imputation to handle skewed distributions.</li>
+                        <li>Categorical Columns: Mode imputation for missing values, filling based on grouping (e.g., median for neighborhood).</li>
+                    </ul>
+                </li>
+                <li>Encoding: One-hot encoding for categorical variables to ensure compatibility with regression models.</li>
+                <li>Target Transformation: Log-transform of the target variable (SalePrice) to handle skewness.</li>
+                <li>Feature Scaling: StandardScaler applied to numeric columns for uniformity in model fitting.</li>
+                <li>Dimensionality Reduction: PCA applied to retain 95% of the variance while reducing feature dimensions.</li>
+            </ul>
+        
+            <h3>Machine Learning Models:</h3>
+            <ul>
+                <li><strong>Lasso Regression:</strong>
+                    <ul>
+                        <li>Uses L1 regularization for automatic feature selection and reducing overfitting.</li>
+                        <li>Hyperparameter tuning performed on alpha values ranging from 0.0001 to 1.0 using grid search.</li>
+                    </ul>
+                </li>
+                <li><strong>Ridge Regression:</strong>
+                    <ul>
+                        <li>Employs L2 regularization to manage multicollinearity and provide robust predictions.</li>
+                        <li>Hyperparameter tuning on alpha values similar to Lasso for optimal regularization strength.</li>
+                    </ul>
+                </li>
+                <li><strong>Random Forest:</strong>
+                    <ul>
+                        <li>An ensemble learning method with multiple decision trees for robust predictions and feature importance ranking.</li>
+                        <li>Hyperparameters included 100 estimators and a maximum depth of 15 to balance accuracy and overfitting.</li>
+                    </ul>
+                </li>
+                <li><strong>Stacked Residual Model:</strong>
+                    <ul>
+                        <li>Combines Lasso Regression and Random Forest, with Lasso addressing linear relationships and Random Forest handling residuals.</li>
+                        <li>Hyperparameter tuning performed on Lasso alpha and Random Forest parameters for optimal stacking.</li>
+                    </ul>
+                </li>
             </ul>
             
-            <p>Our methods for data processing and the use of the Lasso Regression model are well suited to our project due to the nature of our data. The preprocessing steps ensure consistency through our dataset by removing data columns that have too much information missing and then encoding categories appropriately. Lasso regression is then used for its ability to perform feature selection and to prevent overfitting through regularization. The tuning of the hyperparameter along with the subsequent validation of the model, gives an accurate and generalizable prediction model.</p>
-            
-            <p>This is done by first loading both the training and testing sets and adding a TrainFlag to distinguish between them and concatenating it into one data frame, creating a consistent preprocessing process. Afterwards we remove columns with excessive missing values, our threshold sits at 50%. SimpleImputer is used to handle missing data values, with all the data turning into a numerical format to use regression models on. The median was used for imputation because it is effective against outliers and any skewed distributions that we could come across, such as property sizes or prices. We also used mode imputation for categorical data to simplify the process when missing values are mostly random.</p>
-            
-            <p>Lasso regression is used to reduce overfitting and to select the most important features of the data. This algorithm uses L1 regularization and the lasso model with a specific alpha value to find the optimal values. The alpha values tested range from [0.0001 – 1.0] to find the optimal regularization strength that will minimize the prediction error. The model then is trained with the data and the best alpha value is found for the prediction to be as accurate as possible. This lasso regression model was used to basically function as a feature selection since our data set has so many features and complexity needed to be reduced. The regularization used also works to discourage the model from overfitting the noise in the data. The linear nature also helps with the interpretability of the data.</p>
+            <p>The preprocessing pipeline ensured data quality, consistency, and compatibility with the selected models. Lasso and Ridge Regression were chosen for their ability to regularize and manage high-dimensional data, with Ridge offering robust predictions and Lasso aiding feature selection. Random Forest provided flexibility to capture nonlinear patterns, while the Stacked Model combined these strengths to deliver the best overall performance. Hyperparameter tuning and cross-validation ensured that the models generalized well across unseen data.</p>
         </section>
         
         <!-- Results and Expectations Section -->
@@ -483,11 +506,11 @@
                 <tbody>
                     <tr>
                         <td>Lohith Dasari</td>
-                        <td>Readme file</td>
+                        <td>Presentation</td>
                     </tr>
                     <tr>
                         <td>Kushal Dudipala</td>
-                        <td>Creating the model, Testing and training the model, Website, Visualizations, Gantt chart</td>
+                        <td> Wrote code for lasso regression, organized codebase and github, wrote code for website, updated the visualization/statistics write up section, updated the methods write up section, created visualizations, trained models for visualization and quantitative data, README.md/ Statistics.md</td>
                     </tr>
                     <tr>
                         <td>Axel Diaz</td>
@@ -495,11 +518,11 @@
                     </tr>
                     <tr>
                         <td>Ben DiPrete</td>
-                        <td>Code review</td>
+                        <td>Wrote code for ridge regression, random forest, and stacked model</td>
                     </tr>
                     <tr>
                         <td>Miguel Cruz</td>
-                        <td>Updated the Results and Methods sections</td>
+                        <td>Updated the Result write up section</td>
                     </tr>
                 </tbody>
             </table>
